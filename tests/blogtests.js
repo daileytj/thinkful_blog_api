@@ -49,7 +49,7 @@ describe('Blog-Posts', function() {
             title: "Blog Post 4",
             content: "content for blog post 4",
             author: "Somebody...",
-            publishDate: getCurrentDate()
+            publishDate: "some date..."
         };
         return chai.request(app)
             .post('/blog-posts')
