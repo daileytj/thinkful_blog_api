@@ -11,14 +11,6 @@ app.use(morgan('common'));
 app.use('/blog-posts', blogRouter);
 app.use(express.static('public'));
 
-// this function starts our server and returns a Promise.
-// In our test code, we need a way of asynchrnously starting
-// our server, since we'll be dealing with promises there.
-
-
-// both runServer and closeServer need to access the same
-// server object, so we declare `server` here, and then when
-// runServer runs, it assigns a value.
 let server;
 
 function runServer() {
@@ -33,9 +25,6 @@ function runServer() {
   });
 }
 
-// like `runServer`, this function also needs to return a promise.
-// `server.close` does not return a promise on its own, so we manually
-// create one.
 function closeServer() {
   return new Promise((resolve, reject) => {
     console.log('Closing server');
@@ -56,9 +45,8 @@ if (require.main === module) {
   runServer().catch(err => console.error(err));
 }
 
-module.exports = {app, runServer, closeServer};
-
-
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
 });
+
+module.exports = {app, runServer, closeServer};
