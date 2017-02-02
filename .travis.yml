@@ -1,8 +1,2 @@
 language: node_js
 node_js: node
-deploy:
-  provider: heroku
-  api_key: 7740a219-7774-4127-9429-8030c7fe3e70
-  app: calm-peak-68594
-  on:
-    repo: daileytj/blog_api_challenge
